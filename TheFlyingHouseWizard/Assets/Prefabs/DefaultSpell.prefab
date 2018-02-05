@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114383134769980362}
   - component: {fileID: 114577045282234000}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: DefaultSpell
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.35}
+  m_Offset: {x: 0, y: -0.0039357245}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.45562026
 --- !u!95 &95755497286216184
 Animator:
   serializedVersion: 3
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300032, guid: 342844ded80462a489bcfd34cdfb0d2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74ffe2d00b8e7be4bb8e7031a87d65cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

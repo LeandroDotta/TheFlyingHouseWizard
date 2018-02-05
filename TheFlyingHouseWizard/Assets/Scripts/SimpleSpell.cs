@@ -8,17 +8,26 @@ public class SimpleSpell : Spell
 	[HideInInspector]
 	public AutoMovement movement;
 
+	private Animator anim;
+	private Collider2D coll;
+
 	private void Awake() 
 	{
 		movement = GetComponent<AutoMovement>();
+		anim = GetComponentInChildren<Animator>();
+		coll = GetComponent<Collider2D>();
 	}
 
-	private void Start() {
+	private void Start() 
+	{
 		movement.speed = stats.speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) 
 	{
+		if(!coll.enabled)
+			return;
+
 		if(other.CompareTag("Threat"))
 		{
 			Threat threat = other.GetComponent<Threat>();
@@ -32,7 +41,15 @@ public class SimpleSpell : Spell
 				threat.TakeDamage(stats.damage);
 			}
 
-			Destroy(this.gameObject);
+			Die();
 		}
+	}
+
+	private void Die()
+	{
+		anim.SetTrigger("hit");
+		coll.enabled = false;
+		movement.enabled = false;
+		Destroy(this.gameObject, 1);
 	}
 }
