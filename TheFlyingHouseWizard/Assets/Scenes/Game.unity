@@ -467,6 +467,7 @@ MonoBehaviour:
   delay: 1.3
   prefabs:
   - {fileID: 1397989776169080, guid: 55a793e5be005ae4c9b2a9709cb6a6c7, type: 2}
+  - {fileID: 1476615130976382, guid: 15ff700aab5c24d4fb2f6af6a03cc5b2, type: 2}
   points:
   - {fileID: 768040988}
   - {fileID: 610546348}

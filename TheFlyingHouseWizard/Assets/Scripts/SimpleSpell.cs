@@ -30,6 +30,7 @@ public class SimpleSpell : Spell
 
 		if(other.CompareTag("Threat"))
 		{
+			Debug.Log("Spell hits " + other.name);
 			Threat threat = other.GetComponent<Threat>();
 
 			if(threat.stats.oneHit)
@@ -38,6 +39,7 @@ public class SimpleSpell : Spell
 			}
 			else
 			{
+				Debug.Log("Damage: " + stats.damage);
 				threat.TakeDamage(stats.damage);
 			}
 

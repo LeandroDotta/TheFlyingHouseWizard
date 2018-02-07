@@ -21,8 +21,9 @@ public class Threat : MonoBehaviour
 
 	public void TakeDamage(float amount)
 	{
+		Debug.Log("Current Health: " + health);
 		health -= amount;
-
+		Debug.Log("Health after hit: " + health);
 		if(health <= 0)
 		{
 			health = 0;
