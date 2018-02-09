@@ -52,4 +52,12 @@ public class CharacterHealth : MonoBehaviour
 		if(OnHealthChange != null)
 			OnHealthChange.Invoke(_health);
 	}
+
+	public void SetMaxHealth(float newMaxHealth, bool updateHealth = false)
+	{
+		maxHealth = newMaxHealth;
+
+		if(updateHealth)
+			_health = maxHealth;
+	}
 }

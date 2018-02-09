@@ -2,11 +2,14 @@
 
 public class Player : MonoBehaviour 
 {
+	public PlayerStats stats;
+
 	private CharacterHealth health;
 
 	private void Awake() 
 	{
 		health = GetComponent<CharacterHealth>();
+		health.SetMaxHealth(stats.maxHealth, true);
 	}
 
 	private void OnEnable() 
