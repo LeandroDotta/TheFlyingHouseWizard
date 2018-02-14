@@ -21,6 +21,19 @@ public class SimpleSpell : Spell
 	private void Start() 
 	{
 		movement.speed = stats.speed;
+
+		Vector3 scale = transform.localScale;
+		if(Level == 0)
+			scale.x = scale.y = 0.5f;
+		else if(Level == 1)
+			scale.x = scale.y = 0.7f;
+		else if(Level == 2)
+			scale.x = scale.y = 0.85f;
+		else if(Level == 3)
+			scale.x = scale.y = 1;
+
+		transform.localScale = scale;
+		Debug.Log("Spell Level: " + Level);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) 
@@ -30,7 +43,6 @@ public class SimpleSpell : Spell
 
 		if(other.CompareTag("Threat"))
 		{
-			Debug.Log("Spell hits " + other.name);
 			Threat threat = other.GetComponent<Threat>();
 
 			if(threat.stats.oneHit)
@@ -39,8 +51,22 @@ public class SimpleSpell : Spell
 			}
 			else
 			{
-				Debug.Log("Damage: " + stats.damage);
-				threat.TakeDamage(stats.damage);
+				switch(this.Level)
+				{
+					case 0:
+					default:
+						threat.TakeDamage(stats.damage);
+						break;
+					case 1:
+						threat.TakeDamage(stats.damage * stats.level1Multiplier);
+						break;
+					case 2:
+						threat.TakeDamage(stats.damage * stats.level2Multiplier);
+						break;
+					case 3:
+						threat.TakeDamage(stats.damage * stats.level3Multiplier);
+						break;
+				}
 			}
 
 			Die();
